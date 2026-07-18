@@ -804,6 +804,19 @@ html.reveal-ready .reveal.is-visible {
   );
 }
 
+.visit__heading {
+  max-width: min(56rem, 100%);
+  margin-inline: auto;
+  text-align: center;
+}
+
+.visit__heading h2 {
+  font-size: clamp(2.2rem, 7vw, 4.1rem);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
 .visit__grid {
   display: grid;
   grid-template-columns: 1.35fr 1fr;
