@@ -1,23 +1,123 @@
-/* Keep Voiceflow inputs light even when the host page uses color-scheme: dark */
+/* Headlights brand: near-black + lime accent */
 .vfrc-chat,
+.vfrc-widget,
+.vfrc-footer,
+.vf-footer {
+  --vf-bg: #0b0b0b;
+  --vf-panel: #141414;
+  --vf-elevated: #1a1a1a;
+  --vf-ink: #f4f4f4;
+  --vf-ink-soft: #c8c8c8;
+  --vf-muted: #8a8a8a;
+  --vf-line: rgba(255, 255, 255, 0.12);
+  --vf-accent: #95ff1d;
+  --vf-accent-deep: #7adf00;
+  --vf-accent-ink: #0a0a0a;
+}
+
+.vfrc-chat,
+.vfrc-chat--overlay {
+  background: var(--vf-bg) !important;
+  border: 1px solid var(--vf-line) !important;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.55) !important;
+}
+
+.vfrc-header {
+  background: #101010 !important;
+  border-bottom: 1px solid var(--vf-line) !important;
+  color: var(--vf-ink) !important;
+}
+
+.vfrc-assistant-info--title {
+  color: var(--vf-ink) !important;
+}
+
+.vfrc-assistant-info--description {
+  color: var(--vf-ink-soft) !important;
+}
+
+.vfrc-chat--dialog,
+.vfrc-chat--spacer {
+  background: var(--vf-bg) !important;
+}
+
+.vfrc-system-response .vfrc-message {
+  background: var(--vf-elevated) !important;
+  color: var(--vf-ink) !important;
+  border: 1px solid var(--vf-line) !important;
+}
+
+.vfrc-user-response .vfrc-message {
+  background: var(--vf-accent) !important;
+  color: var(--vf-accent-ink) !important;
+  border: none !important;
+}
+
+.vfrc-button,
+.vfrc-system-response .vfrc-button,
+.vfrc-prompt button {
+  background: transparent !important;
+  color: var(--vf-accent) !important;
+  border: 1px solid rgba(149, 255, 29, 0.55) !important;
+}
+
+.vfrc-button:hover,
+.vfrc-system-response .vfrc-button:hover,
+.vfrc-prompt button:hover {
+  background: rgba(149, 255, 29, 0.12) !important;
+  border-color: var(--vf-accent) !important;
+  color: var(--vf-accent) !important;
+}
+
+.vfrc-launcher {
+  background: var(--vf-accent) !important;
+  color: var(--vf-accent-ink) !important;
+  box-shadow: 0 10px 30px rgba(149, 255, 29, 0.28) !important;
+}
+
+/* Footer / composer — keep light so typed text is readable */
 .vfrc-footer,
 .vf-footer {
   color-scheme: light !important;
+  background: #ffffff !important;
+  border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
 }
 
+/*
+  Kill the dark “black container” on the typing field.
+  Browsers apply a dark native input chrome when the page uses color-scheme: dark.
+*/
 .vfrc-chat-input,
 .vfrc-input,
 .vfrc-footer textarea,
 .vfrc-footer input,
 .vf-footer textarea,
-.vf-footer input {
+.vf-footer input,
+.vfrc-footer [contenteditable="true"],
+.vf-footer [contenteditable="true"] {
+  color-scheme: light !important;
   background: transparent !important;
   background-color: transparent !important;
+  background-image: none !important;
   color: #111111 !important;
   caret-color: #111111 !important;
+  border: none !important;
+  outline: none !important;
   box-shadow: none !important;
   -webkit-appearance: none !important;
   appearance: none !important;
+}
+
+.vfrc-chat-input:focus,
+.vfrc-input:focus,
+.vfrc-footer textarea:focus,
+.vf-footer textarea:focus,
+.vfrc-footer input:focus,
+.vf-footer input:focus {
+  background: transparent !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  outline: none !important;
 }
 
 .vfrc-chat-input::placeholder,
@@ -25,4 +125,21 @@
 .vfrc-footer textarea::placeholder,
 .vf-footer textarea::placeholder {
   color: #888888 !important;
+}
+
+.vfrc-chat-input--button,
+.vfrc-footer button[type="submit"] {
+  background: var(--vf-accent) !important;
+  color: var(--vf-accent-ink) !important;
+}
+
+.vfrc-footer--watermark,
+.vfrc-footer--watermark a {
+  color: #8a8a8a !important;
+}
+
+.vfrc-timestamp,
+.vfrc-chat--session-time,
+.vfrc-chat--status {
+  color: var(--vf-muted) !important;
 }
