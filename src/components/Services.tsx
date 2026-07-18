@@ -1,6 +1,9 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { FEATURED_SERVICES } from "@/lib/site";
+import { FadeIn, Stagger, StaggerItem } from "./motion";
 
 const gallery = [
   { src: "/hero-portrait.jpg", alt: "Sharp lineup with textured top" },
@@ -12,7 +15,7 @@ export function Services() {
   return (
     <section className="services section" id="services">
       <div className="shell">
-        <div className="section-heading reveal">
+        <FadeIn className="section-heading">
           <p className="eyebrow">Services</p>
           <h2>Grooming services designed with intention</h2>
           <p className="section-lead">
@@ -20,11 +23,11 @@ export function Services() {
             services, every appointment is tailored to your look, your
             preferences, and your lifestyle.
           </p>
-        </div>
+        </FadeIn>
 
-        <div className="services__gallery reveal">
+        <Stagger className="services__gallery" stagger={0.12}>
           {gallery.map((image) => (
-            <figure key={image.src} className="services__shot">
+            <StaggerItem key={image.src} as="figure" className="services__shot">
               <Image
                 src={image.src}
                 alt={image.alt}
@@ -32,13 +35,13 @@ export function Services() {
                 height={1168}
                 sizes="(max-width: 768px) 70vw, 28vw"
               />
-            </figure>
+            </StaggerItem>
           ))}
-        </div>
+        </Stagger>
 
-        <ol className="services__list">
+        <Stagger as="ol" className="services__list" stagger={0.12} delay={0.05}>
           {FEATURED_SERVICES.map((service, index) => (
-            <li key={service.name} className="services__item reveal">
+            <StaggerItem key={service.name} as="li" className="services__item">
               <span className="services__index">
                 {String(index + 1).padStart(2, "0")}
               </span>
@@ -46,18 +49,18 @@ export function Services() {
                 <h3>{service.name}</h3>
                 <p>{service.description}</p>
               </div>
-            </li>
+            </StaggerItem>
           ))}
-        </ol>
+        </Stagger>
 
-        <div className="services__cta reveal">
+        <FadeIn className="services__cta" delay={0.1}>
           <Link href="/services" className="btn-primary">
             Explore More Services
           </Link>
           <Link href="/gallery" className="btn-ghost">
             View Gallery
           </Link>
-        </div>
+        </FadeIn>
       </div>
     </section>
   );

@@ -1,14 +1,19 @@
+"use client";
+
 import Image from "next/image";
 import { SITE } from "@/lib/site";
+import { FadeIn } from "./motion";
 
 export function Artist() {
   return (
     <section className="artist section" id="artist">
       <div className="shell">
-        <h2 className="artist__title reveal">Meet the artist</h2>
+        <FadeIn>
+          <h2 className="artist__title">Meet the artist</h2>
+        </FadeIn>
 
         <div className="artist__grid">
-          <div className="artist__media reveal">
+          <FadeIn className="artist__media" x={-36} y={16}>
             <Image
               src="/jordan-at-work.png"
               alt="Jordan Howell cutting hair at Headlights Haircuts For Men"
@@ -18,9 +23,9 @@ export function Artist() {
               className="artist__photo"
               priority
             />
-          </div>
+          </FadeIn>
 
-          <div className="artist__copy reveal">
+          <FadeIn className="artist__copy" x={36} y={16} delay={0.12}>
             <h3 className="artist__name">Jordan Howell</h3>
             <p>
               Jordan Howell is a seasoned master barber with nearly a decade of
@@ -59,7 +64,7 @@ export function Artist() {
                 <InstagramIcon />
               </a>
             </div>
-          </div>
+          </FadeIn>
         </div>
       </div>
     </section>

@@ -1,4 +1,7 @@
+"use client";
+
 import { SITE } from "@/lib/site";
+import { FadeIn } from "./motion";
 
 const MAP_EMBED_URL =
   "https://www.google.com/maps?q=9557+Chapel+Hill+Rd+Suite+104,+Morrisville,+NC+27560&hl=en&z=15&output=embed";
@@ -7,12 +10,12 @@ export function Visit() {
   return (
     <section className="visit section" id="visit">
       <div className="shell">
-        <div className="section-heading visit__heading reveal">
+        <FadeIn className="section-heading visit__heading">
           <h2>Visit us</h2>
-        </div>
+        </FadeIn>
 
         <div className="visit__grid">
-          <div className="visit__map-wrap reveal">
+          <FadeIn className="visit__map-wrap" x={-28} y={16}>
             <div className="visit__map">
               <iframe
                 title={`Map to ${SITE.name}`}
@@ -22,9 +25,9 @@ export function Visit() {
                 allowFullScreen
               />
             </div>
-          </div>
+          </FadeIn>
 
-          <div className="visit__details reveal">
+          <FadeIn className="visit__details" x={28} y={16} delay={0.1}>
             <div>
               <h3>Address</h3>
               <p>
@@ -49,7 +52,7 @@ export function Visit() {
                 <a href={SITE.phoneHref}>{SITE.phoneDisplay}</a>
               </p>
             </div>
-          </div>
+          </FadeIn>
         </div>
       </div>
     </section>
