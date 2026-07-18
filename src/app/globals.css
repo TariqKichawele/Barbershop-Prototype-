@@ -109,6 +109,12 @@ p {
 .contact__lead h2 {
   font-size: clamp(2.6rem, 6vw, 4.4rem);
   margin-top: 0.45rem;
+  margin-bottom: 0;
+}
+
+.section-heading h2 + .section-lead,
+.contact__lead h2 + .section-lead {
+  margin-top: 1.15rem;
 }
 
 .section-lead,
@@ -1156,11 +1162,12 @@ html.reveal-ready .reveal.is-visible {
 
 .contact__form-wrap h3 {
   font-size: clamp(1.8rem, 3vw, 2.4rem);
-  margin-bottom: 0.4rem;
+  margin-bottom: 0;
 }
 
 .contact__form-wrap > p {
   color: var(--muted);
+  margin-top: 1rem;
   margin-bottom: 1.25rem;
 }
 
