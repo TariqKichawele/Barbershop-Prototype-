@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Barlow, Barlow_Condensed, Graduate } from "next/font/google";
+import { VoiceflowChat } from "@/components/VoiceflowChat";
 import { SITE } from "@/lib/site";
 import "./globals.css";
 
@@ -41,7 +42,10 @@ export default function RootLayout({
       lang="en"
       className={`${barlow.variable} ${barlowCondensed.variable} ${graduate.variable}`}
     >
-      <body>{children}</body>
+      <body>
+        {children}
+        <VoiceflowChat />
+      </body>
     </html>
   );
 }

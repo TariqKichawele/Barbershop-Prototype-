@@ -1,0 +1,28 @@
+/* Keep Voiceflow inputs light even when the host page uses color-scheme: dark */
+.vfrc-chat,
+.vfrc-footer,
+.vf-footer {
+  color-scheme: light !important;
+}
+
+.vfrc-chat-input,
+.vfrc-input,
+.vfrc-footer textarea,
+.vfrc-footer input,
+.vf-footer textarea,
+.vf-footer input {
+  background: transparent !important;
+  background-color: transparent !important;
+  color: #111111 !important;
+  caret-color: #111111 !important;
+  box-shadow: none !important;
+  -webkit-appearance: none !important;
+  appearance: none !important;
+}
+
+.vfrc-chat-input::placeholder,
+.vfrc-input::placeholder,
+.vfrc-footer textarea::placeholder,
+.vf-footer textarea::placeholder {
+  color: #888888 !important;
+}

@@ -162,37 +162,73 @@ export const GALLERY = [
   },
 ] as const;
 
-/** Placeholder reviews — replace with real Google reviews later. */
-export const REVIEWS = [
+/** Real Google reviews — optional photos live in /public/reviews/{slug}.jpg */
+export const GOOGLE_RATING = {
+  score: 5.0,
+  count: 14,
+} as const;
+
+export type Review = {
+  name: string;
+  initial: string;
+  avatarColor: string;
+  /** Optional path like "/reviews/myles-fiatsi.jpg" */
+  image?: string;
+  rating: number;
+  quote: string;
+  source: "Google";
+};
+
+export const REVIEWS: Review[] = [
   {
-    name: "Marcus T.",
+    name: "Erik Hazzard",
+    initial: "E",
+    avatarColor: "#1565C0",
+    image: "/reviews/erik-hazzard.png",
     rating: 5,
     quote:
-      "Best fade I’ve gotten in the Triangle. Jordan takes his time, listens, and the cut holds up for weeks. Already booked my next one.",
+      "Jordan is on another level. The first time he cut my hair my wife said it was the best I've ever looked, and he hasnt slipped once since. He remembers exactly what I like without my saying anything. He's super easy to talk to, it's a great environment, and I look forward to seeing him every time I get it cut. Could not recommend him higher!",
     source: "Google",
   },
   {
-    name: "Devon R.",
+    name: "Myles Fiatsi",
+    initial: "M",
+    avatarColor: "#5C6BC0",
+    image: "/reviews/myles-fiatsi.png",
     rating: 5,
     quote:
-      "Clean shop, great energy, and the Gold Standard is worth every dollar. Walked out looking sharper than I have in years.",
+      "I've been getting my hair cut by Jordan for years, and I honestly can't recommend him enough. His attention to detail is second to none, and every cut is consistent, clean, and exactly what I ask for.",
     source: "Google",
   },
   {
-    name: "Andre W.",
+    name: "Patrick Keiffer",
+    initial: "P",
+    avatarColor: "#00897B",
+    image: "/reviews/patrick-keiffer.png",
     rating: 5,
     quote:
-      "On time, professional, and the beard work is elite. Easy booking and a spot I actually look forward to visiting.",
+      "Jordan did an outstanding job on my haircut. The attention to detail, the clean finish, and the overall style were exactly what I was hoping for. He also recommended the right hair products to help me maintain the look, which I really appreciated. Highly recommend Jordan for anyone looking for a top-tier cut.",
     source: "Google",
   },
   {
-    name: "Chris L.",
+    name: "Leon Levine",
+    initial: "L",
+    avatarColor: "#E67E22",
     rating: 5,
     quote:
-      "Brought my son for his first real cut and Jordan made it easy. Detail-oriented without the rush. Highly recommend.",
+      "Have you ever gotten a haircut and it didn't come out how you expected? You won't have that problem with Jordan, he's easily one of the best barbers in the area.",
     source: "Google",
   },
-] as const;
+  {
+    name: "Michael Moore",
+    initial: "M",
+    avatarColor: "#D81B60",
+    rating: 5,
+    quote:
+      "Jordan is an expert. I've been to barbers from Durham to Sanford to Raleigh and he is the best in the area by far! He earned these 5 stars!",
+    source: "Google",
+  },
+];
 
 export const FAQ_ITEMS = [
   {

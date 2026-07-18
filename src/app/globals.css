@@ -685,52 +685,189 @@ html.reveal-ready .reveal.is-visible {
   text-align: center;
 }
 
-.reviews__list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(1.5rem, 3vw, 2.25rem) clamp(1.75rem, 4vw, 3rem);
+.reviews__rating {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem 0.75rem;
+  margin-top: 1.25rem;
+}
+
+.reviews__rating-score {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--ink);
+}
+
+.reviews__rating .reviews__stars {
+  font-size: 1.15rem;
+  color: #fbbc04;
+}
+
+.reviews__rating-count {
+  color: var(--muted);
+  font-size: 0.98rem;
+}
+
+.reviews__carousel {
   border-top: 1px solid var(--line);
   padding-top: clamp(2rem, 4vw, 2.75rem);
 }
 
+.reviews__stage {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: clamp(0.75rem, 2vw, 1.5rem);
+  max-width: 48rem;
+  margin-inline: auto;
+}
+
+.reviews__viewport {
+  position: relative;
+  min-height: 14rem;
+  overflow: hidden;
+  text-align: center;
+}
+
 .reviews__item {
   display: grid;
-  gap: 0.85rem;
+  gap: 0.95rem;
+  justify-items: center;
   align-content: start;
+  width: 100%;
+}
+
+.reviews__author {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  text-align: left;
+}
+
+.reviews__avatar,
+.reviews__avatar-img {
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.reviews__avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.reviews__avatar-img {
+  object-fit: cover;
+  background: #222;
+}
+
+.reviews__author-meta {
+  display: grid;
+  gap: 0.15rem;
+}
+
+.reviews__author-meta cite {
+  font-style: normal;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.reviews__author-meta span {
+  color: var(--muted);
+  font-size: 0.9rem;
 }
 
 .reviews__stars {
-  color: var(--accent);
+  color: #fbbc04;
   letter-spacing: 0.12em;
-  font-size: 1rem;
+  font-size: 1.05rem;
   line-height: 1;
 }
 
 .reviews__quote p {
   color: var(--ink-soft);
-  font-size: clamp(1.05rem, 1.6vw, 1.2rem);
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
   line-height: 1.65;
+  max-width: 38rem;
+  margin-inline: auto;
 }
 
-.reviews__meta {
-  display: flex;
-  flex-wrap: wrap;
+.reviews__arrow {
+  display: inline-flex;
   align-items: center;
-  gap: 0.45rem;
-  color: var(--muted);
-  font-family: var(--font-display);
-  font-size: 0.95rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+  transition:
+    border-color 180ms ease,
+    color 180ms ease,
+    background-color 180ms ease,
+    transform 180ms ease;
 }
 
-.reviews__meta cite {
-  font-style: normal;
-  color: var(--ink);
+.reviews__arrow:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(149, 255, 29, 0.06);
+}
+
+.reviews__arrow:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.reviews__arrow--prev svg {
+  transform: rotate(180deg);
+}
+
+.reviews__dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.55rem;
+  margin-top: 1.5rem;
+}
+
+.reviews__dot {
+  width: 0.55rem;
+  height: 0.55rem;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.28);
+  cursor: pointer;
+  transition:
+    background-color 180ms ease,
+    transform 180ms ease;
+}
+
+.reviews__dot.is-active {
+  background: var(--accent);
+  transform: scale(1.15);
+  box-shadow: 0 0 10px rgba(149, 255, 29, 0.45);
+}
+
+.reviews__dot:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
 
 /* FAQ */
@@ -1353,13 +1490,45 @@ html.reveal-ready .reveal.is-visible {
   .visit__grid,
   .contact__grid,
   .services-page__item-main,
-  .faq__grid,
-  .reviews__list {
+  .faq__grid {
     grid-template-columns: 1fr;
+  }
+
+  .reviews__stage {
+    gap: 0.55rem;
+  }
+
+  .reviews__arrow {
+    width: 2.4rem;
+    height: 2.4rem;
+  }
+
+  .reviews__viewport {
+    min-height: 13rem;
   }
 
   .faq__heading {
     position: static;
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .contact__lead,
+  .contact__form-wrap {
+    text-align: center;
+  }
+
+  .contact__lead .btn-primary,
+  .contact__form-wrap .btn-primary {
+    width: 100%;
+  }
+
+  .contact__meta {
+    justify-items: center;
+  }
+
+  .contact-form {
+    text-align: left;
   }
 
   .gallery-page__grid {
